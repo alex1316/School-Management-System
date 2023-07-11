@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Domain.GradeProf>
+@{
+}
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-dark" href="/Grades/Add">+ Add more</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Grades</h3>
+
+            <table class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Student Name</th>
+                        <th>Grades</th>                       
+                        <th>Student AM</th>
+                        <th>Subject Name</th>
+                        <th>Subject Year</th>
+                        <th>Subject Semester</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ProfFrstname</td>
+                            <td>@item.StudentAM</td>
+                            <td>@item.ProfLastName</td>
+                            <td>@item.GradesProf</td>
+                            <td>@item.StudentName</td>
+                            <td>@item.SubjectName</td>
+                            <td>@item.SubjectYear</td>
+                            <td>@item.SubjectSemester</td>
+                            <td>
+                                <a class="btn btn-success" href="/Grades/Update?id=@item.Id"><i class="bi bi-pen"></i></a> |
+                            <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Grades/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.Domain.StudentAdmin>
+@{
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-dark" href="/Student/Add">+ Add more</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Students </h3>
+
+            <table class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>StudentName</th>
+                        <th>Action</th>
+                        <th>StudentAM</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.StudentName</td>
+                            <td>
+                                <a class="btn btn-success" href="/Student/Update?id=@item.Id"> <i class="bi bi-pen"></i> Edit</a> |
+                                <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Student/Delete?id=@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                            </td>
+
+                            <td>@item.StudentAM</td>
+                            <td>
+                                <a class="btn btn-success" href="/Student/Update?id=@item.Id"> <i class="bi bi-pen"></i> Edit</a> |
+                                <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Student/Delete?id=@item.Id"><i class="bi bi-trash"></i> Delete</a>
+                            </td>
+
+                           
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

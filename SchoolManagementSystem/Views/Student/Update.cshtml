@@ -1,0 +1,37 @@
+﻿@model SchoolManagementSystem.Models.Domain.StudentAdmin
+@{
+}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Update Student</h3>
+            <form asp-action="Update" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="StudentName">Student Name *</label>
+                    <input type="text" class="form-control" asp-for="StudentName" />
+                    <span asp-validation-for="StudentName" class="text-danger"></span>
+
+                    <label asp-for="StudentAM">StudentAM *</label>
+                    <input type="text" class="form-control" asp-for="StudentAM" />
+                    <span asp-validation-for="StudentAM" class="text-danger"></span>
+
+                   
+                </div>
+
+                @if (TempData["msg"] != null)
+                {
+                    <div class="form-group">
+                        @TempData["msg"]
+                    </div>
+                }
+                <div class="form-group pt-3">
+                    <button type="submit" class="btn btn-dark"><i class="bi bi-save"></i> Save</button>
+                    <a href="/Student/GetAll" class="btn btn-primary"> <i class="bi bi-list"></i>List</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
